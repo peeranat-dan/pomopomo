@@ -1,6 +1,7 @@
 import React from "react";
 import PomodoroCard from "./components/Pomodoro/PomodoroCard";
-import TasksPart from "./components/Todo/TasksPart";
+import ToDoLists from "./components/Todo/ToDoLists";
+
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
             </div>
             <PomodoroCard />
         </div>
-        {/*<TasksPart />*/}
+        <div className="sm:w-full sm:mx-auto lg:w-1/2">
+            <ToDoLists />
+        </div>
     </div>
   );
 };
