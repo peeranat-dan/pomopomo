@@ -1,7 +1,5 @@
 import React, {createContext, useEffect, useRef, useState} from "react";
 import ToDoCard from "./ToDoCard";
-import {useDrop} from "react-dnd";
-import {ITEM_TYPES} from "../../Constant";
 import BacklogDropArea from "./BacklogDropArea";
 import WipDropArea from "./WipDropArea";
 import DoneDropArea from "./DoneDropArea";
@@ -13,39 +11,13 @@ export const CardContext = createContext({
 })
 
 const ToDoLists = props => {
-    const [tasks, setTasks] = useState([
-        {
-            taskId: 1,
-            status: "backlog",
-            title: "Card",
-            tag: "Urgent",
-            description: "Description"
-        },
-        {
-            taskId: 2,
-            status: "backlog",
-            title: "Card",
-            tag: "Urgent",
-            description: "Description"
-        },{
-            taskId: 3,
-            status: "backlog",
-            title: "Card",
-            tag: "Urgent",
-            description: "Description"
-        },
-        {
-            taskId: 4,
-            status: "backlog",
-            title: "Card",
-            tag: "Urgent",
-            description: "Description"
-        },
-    ]);
+    const [tasks, setTasks] = useState([]);
     const moveStatus = (_id, status) => {
-        const task = tasks.filter(t => t.taskId === _id) ;
-        task[0].status = status;
-        setTasks(tasks.filter(t => t.taskId !== _id).concat(task[0]));
+        setTasks(tasks => {
+            let task = tasks.filter(t => t.taskId === _id);
+            task[0].status = status;
+            return tasks.filter(t => t.taskId !== _id).concat(task[0]);
+        });
     };
     const [toggle, setToggle] = useState(false);
     const [mode, setMode] = useState('');
@@ -58,7 +30,6 @@ const ToDoLists = props => {
     };
     const addTasks = (obj) => {
         setTasks(prevTasks => [...prevTasks, obj ]);
-        console.log(tasks)
     };
 
     return (

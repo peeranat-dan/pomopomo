@@ -11,7 +11,7 @@ const BacklogDropArea = props => {
         collect: (monitor) =>( {
             opacity: !!monitor.isOver() ? 0.5 : 1,
         })
-    }))
+    }));
     return (
         <div ref={drop} className="w-full h-full flex flex-col" style={{opacity}}>
             {props.children}
