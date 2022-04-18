@@ -8,6 +8,10 @@ URL: [https://pomo-pomo.netlify.app/home](https://pomo-pomo.netlify.app/home)
 
 ## Release Notes
 
+### V1.3
+- Add draggable cards instead of to-do lists with [React-DnD](https://react-dnd.github.io/react-dnd/about)
+- Remove backend (tasks entered are not stored anywhere and disappear on page refresh)
+
 ### V1.2
 - Migrate to ReactJS
 - Remove to-do lists due to bugs
@@ -21,4 +25,3 @@ URL: [https://pomo-pomo.netlify.app/home](https://pomo-pomo.netlify.app/home)
 ## Future Plan
 - Authentication
 - User's selection on time, color palette, style
-- Draggable Status on PC

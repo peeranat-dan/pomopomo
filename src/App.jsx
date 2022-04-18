@@ -1,10 +1,11 @@
 import React from "react";
 import PomodoroCard from "./components/Pomodoro/PomodoroCard";
-import TasksPart from "./components/Todo/TasksPart";
+import ToDoLists from "./components/Todo/ToDoLists";
+
 
 function App() {
   return (
-    <div className="w-full h-screen overflow-y-auto px-[1.5em] sm:px-0 bg-background pt-[2em]">
+    <div className="w-full h-screen overflow-y-auto px-[1.5em] lg:px-0 bg-background pt-[2em]">
         <div className="sm:w-full sm:mx-auto lg:w-1/2">
             <div className="text-3xl font-normal lg:hidden select-none">
                 Pomodoro <span className="text-primary-100">Timer</span>
@@ -14,7 +15,9 @@ function App() {
             </div>
             <PomodoroCard />
         </div>
-        {/*<TasksPart />*/}
+        <div className="sm:w-full sm:mx-auto lg:w-1/2 hidden xl:block">
+            <ToDoLists />
+        </div>
     </div>
   );
 };

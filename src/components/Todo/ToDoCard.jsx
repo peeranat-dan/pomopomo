@@ -1,43 +1,37 @@
-import React, {useState} from "react";
-import {PencilIcon, XIcon} from "@heroicons/react/solid";
-import ConfirmModal from "./ConfirmModal";
+import React from "react";
+import { useDrag } from "react-dnd";
+import { ITEM_TYPES } from "../../Constant";
 
-const ToDoCard = props => {
-    const task = props.task;
-
-    const [toggle, setToggle] = useState(false);
-    const toggleDialog = () => {
-        setToggle(toggle => !toggle);
-    };
-    const deleteTask = () => {
-        props.onDelete(task.task_no);
-    };
-    const finishTask = () => {
-        props.onFinish(task.task_no);
+const ToDoCard = ({ isDragging, obj}) => {
+    const [{opacity}, dragRef] = useDrag(()=> ({
+        type: ITEM_TYPES.CARD,
+        item: {obj},
+        collect: (monitor) => ({
+            opacity: monitor.isDragging() ? 0.5 : 1
+        }),
+    }),[]);
+    let tagColor;
+    if (obj.status === "backlog") {
+        tagColor = "bg-primary-100";
+    } else if (obj.status === "wip") {
+        tagColor = "bg-timerMain-100";
+    } else {
+        tagColor = "bg-secondary-100";
     }
     return (
-        <div key={task.task_no}>
-            {toggle && <ConfirmModal onToggle={toggleDialog} onDelete={deleteTask}/>}
-            <div className="p-3 flow-root">
-                <div className="float-left flex items-center">
-                    <input type="checkbox" className="mr-3 w-5 h-5 default:ring-2 accent-primary-200" onChange={finishTask}/>
-                    <div className="text-lg font-thai">
-                        { task.title }
-                    </div>
-                </div>
-                <div className="float-right flex space-x-2">
-                    {/*<button className="bg-primary-100 rounded-lg w-7 h-7 flex justify-center items-center">*/}
-                    {/*    <PencilIcon className="w-5 h-5 text-white"/>*/}
-                    {/*</button>*/}
-                    <button className="bg-secondary-100 rounded-lg w-7 h-7 flex justify-center items-center" onClick={toggleDialog}>
-                        <XIcon className="w-5 h-5 text-white" />
-                    </button>
-                </div>
+        <div key={obj.taskId} ref={dragRef} style={{ opacity }} className="px-2 py-3 bg-white rounded-lg shadow-md cursor-pointer mx-1 my-0.5">
+
+            <div className="flex justify-between items-baseline">
+                {obj.title}
+                <div className={`${tagColor} text-sm px-2 py-1 rounded-md text-white mb-1`}> {obj.tag} </div>
             </div>
-            <div className="bg-gray-200 h-0.5">
+            <div className="text-sm ml-2">
+                {obj.description}
             </div>
+
         </div>
     );
 };
 
 export default ToDoCard;
+

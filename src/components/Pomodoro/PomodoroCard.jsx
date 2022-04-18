@@ -63,7 +63,7 @@ const PomodoroCard = props => {
                     longBreakTime={timeReference.l}
                 />}
             <div className="bg-white w-full p-1.5 mt-10 mb-10 rounded-xl flex flex-col items-center shadow-md space-y-2">
-                <div className={`${timerBackground[mode[n]]} w-full rounded-xl flex flex-col justify-center items-center transition-colors duration-300`}>
+                <div className={`${timerBackground[mode[n]]} w-full rounded-xl flex flex-col justify-center items-center transition-colors duration-300 h-[25em] lg:h-fit`}>
                     <div className="text-6xl sm:text-8xl mt-10 sm:mt-20 text-white select-none">{timeDisplay}</div>
                     <div className={"text-xl sm:text-2xl mb-10 sm:mb-20 text-white select-none flex items-center mt-1"}>
                         {"Mode: " +modeName[mode[n]]}

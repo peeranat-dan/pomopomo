@@ -32,7 +32,9 @@ module.exports = {
           200: '#ae6856',
           300: '#9a5d4c'
         },
-
+        'backlog': '#d1ddcc',
+        'wip': '#ffeedf',
+        'done': '#faf7ff',
       }
     },
   },
