@@ -1,15 +1,15 @@
 # PomoPomo
-URL: [https://pomo-pomo.netlify.app/home](https://pomo-pomo.netlify.app/home)
+URL: [https://pomo-pomo.netlify.app/home](https://pomo-pomo.netlify.app/)
 - **Pomodoro Timer**
-- Coded with **ReactJS + Vite**
-- Styling with **Tailwind CSS**
-- Create a backend using **Supabase**
+- Coded with **ReactJS + [Vite](https://vitejs.dev/)**
+- Styling with **[Tailwind CSS](https://tailwindcss.com/)**
+- Create a backend using **[Supabase](https://supabase.com/)**
 
 
 ## Release Notes
 
 ### V1.3
-- Add draggable cards instead of to-do lists with [React-DnD](https://react-dnd.github.io/react-dnd/about)
+- Add draggable cards instead of to-do lists with **[React-DnD](https://react-dnd.github.io/react-dnd/about)**
 - Remove backend (tasks entered are not stored anywhere and disappear on page refresh)
 
 ### V1.2
